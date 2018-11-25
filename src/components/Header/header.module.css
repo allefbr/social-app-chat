@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
+
+.wrapper h2 {
+  font-weight: 400;
+}
+
+.wrapper a,
+.wrapper button {
+  width: 25px;
+}
+
+.wrapper button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+}

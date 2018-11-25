@@ -1,0 +1,73 @@
+.person {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 15px;
+
+  font-family: var(--main-font);
+}
+
+.figure {
+  width: 50px;
+  height: 50px;
+  flex: none;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 15px;
+  position: relative;
+}
+
+.infos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 15px;
+  flex-grow: 1;
+}
+
+.timewrapper {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.time,
+.lastMessage {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--main-text-color-light);
+}
+
+.online {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  bottom: 4px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--main-text-color);
+}
+
+.noread {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 15px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: var(--main-color);
+  margin-top: 5px;
+}
