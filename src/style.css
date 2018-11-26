@@ -36,3 +36,8 @@ a {
 .persons a:hover {
   background-color: #f1f1f1;
 }
+
+button {
+  outline: 0;
+  cursor: pointer;
+}

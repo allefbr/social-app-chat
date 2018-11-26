@@ -1,0 +1,32 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 15px 30px 15px 45px;
+  border: 0;
+  font-size: 15px;
+  font-family: var(--main-font-family);
+  color: var(--main-text-color);
+}
+
+.icon {
+  width: 20px;
+  display: inline-grid;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.icon.send {
+  fill: var(--main-color);
+  left: auto;
+  right: 15px;
+}

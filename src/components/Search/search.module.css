@@ -11,6 +11,7 @@
   font-size: 14px;
   font-family: var(--main-font-family);
   color: var(--main-text-color);
+  outline: 0;
 }
 
 .close {
@@ -23,4 +24,5 @@
   transform: translateY(-50%);
   background-color: transparent;
   fill: var(--main-text-color);
+  cursor: pointer;
 }

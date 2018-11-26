@@ -8,12 +8,15 @@
 }
 
 .wrapper h2 {
+  font-size: 16px;
   font-weight: 400;
 }
 
 .wrapper a,
 .wrapper button {
-  width: 25px;
+  width: 20px;
+  flex: none;
+  display: inline-grid;
 }
 
 .wrapper button {

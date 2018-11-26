@@ -3,17 +3,20 @@ import style from "./search.module.css";
 
 import { IconClose } from "../Icons";
 
-const SearchForm = ({ handleCloseForm }) => (
-  <form className={style.wrapper}>
+const SearchForm = ({ handleCloseForm, handleFilter }) => (
+  <div className={style.wrapper}>
     <button type="button" className={style.close} onClick={handleCloseForm}>
       <IconClose />
     </button>
     <input
       type="text"
+      name="search"
       className={style.input}
       placeholder="Buscar por contatos"
+      onChange={handleFilter}
+      autoComplete="off"
     />
-  </form>
+  </div>
 );
 
 export default SearchForm;
