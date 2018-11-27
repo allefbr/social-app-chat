@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { IconCamera, IconSearch } from "../../components/Icons";
 
@@ -8,15 +9,13 @@ import ListPerson from "../../components/ListPerson";
 
 import style from "./home.module.css";
 
-import { contacts } from "../../utils/data";
-
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isOpenForm: false,
-      initialItems: contacts,
+      initialItems: props.items,
       items: []
     };
 
@@ -79,4 +78,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  items: state.contacts.items
+});
+
+export default connect(mapStateToProps)(Home);
