@@ -41,9 +41,11 @@ class Home extends Component {
   };
 
   render() {
+    const { homeGrid, header, form, content } = style;
+
     return (
-      <section className={style.homeGrid}>
-        <Header className={style.header}>
+      <section className={homeGrid}>
+        <Header className={header}>
           <Link to="/camera">
             <IconCamera />
           </Link>
@@ -56,13 +58,13 @@ class Home extends Component {
 
         {this.state.isOpenForm && (
           <SearchForm
-            className={style.form}
+            className={form}
             handleCloseForm={this.handleCloseForm}
             handleFilter={this.handleFilter}
           />
         )}
 
-        <article className={style.content}>
+        <article className={content}>
           <ListPerson items={this.state.items} />
         </article>
       </section>

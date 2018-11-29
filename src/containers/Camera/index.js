@@ -6,42 +6,57 @@ import {
   IconArrow,
   IconChat
 } from "../../components/Icons";
-import style from "./camera.module.css";
+
 import { Link } from "react-router-dom";
+import style from "./camera.module.css";
 
 class Camera extends Component {
   render() {
+    const {
+      cameraGrid,
+      thumb,
+      back,
+      button,
+      left,
+      right,
+      footer,
+      footerAction,
+      time,
+      local,
+      columnFull,
+      icon,
+      action
+    } = style;
+
     return (
-      <section className={style.cameraGrid}>
-        <div className={style.thumb}>
-          <button onClick={this.props.history.goBack} className={style.back}>
+      <section className={cameraGrid}>
+        <div className={thumb}>
+          <button onClick={this.props.history.goBack} className={back}>
             <IconArrow />
           </button>
 
-          <button className={`${style.button} ${style.left}`}>
+          <button className={`${button} ${left}`}>
             <IconThunder />
           </button>
-          <button className={`${style.button} ${style.right}`}>
+          <button className={`${button} ${right}`}>
             <IconRotate />
           </button>
         </div>
 
-        <footer className={style.footer}>
-          <div className={style.footerAction}>
-            <small className={`${style.time} ${style.columnFull}`}>
-              2:15 PM
-            </small>
-            <p className={`${style.local} ${style.columnFull}`}>
+        <footer className={footer}>
+          <div className={footerAction}>
+            <small className={`${time} ${columnFull}`}>2:15 PM</small>
+            <p className={`${local} ${columnFull}`}>
               Kitazawa, Setagaya-ku, Tokyo, Japan
             </p>
 
-            <button className={style.icon}>
+            <button className={icon}>
               <IconPeople />
             </button>
 
-            <span className={style.action} />
+            <span className={action} />
 
-            <Link to="/" className={style.icon}>
+            <Link to="/" className={icon}>
               <IconChat />
             </Link>
           </div>

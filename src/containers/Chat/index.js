@@ -11,9 +11,11 @@ class Chat extends Component {
   };
 
   render() {
+    const { chatGrid, header, content, footer } = style;
+
     return (
-      <section className={style.chatGrid}>
-        <Header className={style.header}>
+      <section className={chatGrid}>
+        <Header className={header}>
           <button onClick={this.props.history.goBack}>
             <IconArrow />
           </button>
@@ -24,11 +26,11 @@ class Chat extends Component {
           </button>
         </Header>
 
-        <section className={style.content}>
+        <section className={content}>
           <p>asdfa</p>
         </section>
 
-        <footer className={style.footer}>
+        <footer className={footer}>
           <ChatForm />
         </footer>
       </section>
