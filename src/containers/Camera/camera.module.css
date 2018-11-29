@@ -9,6 +9,7 @@
 }
 
 .columnFull {
+  color: var(--main-text-color);
   grid-column: 1 / span 4;
 }
 
@@ -19,6 +20,9 @@
   width: 20px;
   fill: rgba(255, 255, 255, 0.5);
   transition: all 0.2s ease-in-out;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
 }
 
 .back:hover {
@@ -58,11 +62,22 @@
   text-align: center;
   padding: 15px;
 
+  background-color: #fff;
+}
+
+.footerAction {
   display: grid;
   grid-template-rows: repeat(2, auto) 1fr;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
+}
+
+.listContacts {
+  width: 100%;
+  height: 150px;
+  background-color: red;
+  margin-top: 15px;
 }
 
 .icon {
@@ -74,8 +89,13 @@
   outline: 0;
 }
 
-.timer {
+.time {
   grid-column: 1 / span 4;
+}
+
+.local {
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 .action {

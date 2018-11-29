@@ -10,29 +10,25 @@ import ListPerson from "../../components/ListPerson";
 import style from "./home.module.css";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    isOpenForm: false,
+    initialItems: this.props.items,
+    items: []
+  };
 
-    this.state = {
-      isOpenForm: false,
-      initialItems: props.items,
-      items: []
-    };
-
-    this.handleOpenForm = this.handleOpenForm.bind(this);
-    this.handleCloseForm = this.handleCloseForm.bind(this);
-    this.handleFilter = this.handleFilter.bind(this);
+  componentWillMount() {
+    this.setState({ items: this.state.initialItems });
   }
 
-  handleOpenForm() {
+  handleOpenForm = () => {
     this.setState({ isOpenForm: true });
-  }
+  };
 
-  handleCloseForm() {
+  handleCloseForm = () => {
     this.setState({ isOpenForm: false });
-  }
+  };
 
-  handleFilter(event) {
+  handleFilter = event => {
     event.preventDefault();
     let value = event.target.value.toLowerCase();
     let updateItems = this.state.initialItems;
@@ -42,11 +38,7 @@ class Home extends Component {
     );
 
     this.setState({ items: updateItems });
-  }
-
-  componentWillMount() {
-    this.setState({ items: this.state.initialItems });
-  }
+  };
 
   render() {
     return (

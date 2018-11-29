@@ -14,9 +14,9 @@ class Camera extends Component {
     return (
       <section className={style.cameraGrid}>
         <div className={style.thumb}>
-          <Link to="/" className={style.back}>
+          <button onClick={this.props.history.goBack} className={style.back}>
             <IconArrow />
-          </Link>
+          </button>
 
           <button className={`${style.button} ${style.left}`}>
             <IconThunder />
@@ -27,20 +27,26 @@ class Camera extends Component {
         </div>
 
         <footer className={style.footer}>
-          <small className={`${style.time} ${style.columnFull}`}>2:15 PM</small>
-          <p className={`${style.local} ${style.columnFull}`}>
-            Kitazawa, Setagaya-ku, Tokyo, Japan
-          </p>
+          <div className={style.footerAction}>
+            <small className={`${style.time} ${style.columnFull}`}>
+              2:15 PM
+            </small>
+            <p className={`${style.local} ${style.columnFull}`}>
+              Kitazawa, Setagaya-ku, Tokyo, Japan
+            </p>
 
-          <button className={style.icon}>
-            <IconPeople />
-          </button>
+            <button className={style.icon}>
+              <IconPeople />
+            </button>
 
-          <span className={style.action} />
+            <span className={style.action} />
 
-          <Link to="/" className={style.icon}>
-            <IconChat />
-          </Link>
+            <Link to="/" className={style.icon}>
+              <IconChat />
+            </Link>
+          </div>
+
+          {/* <div className={style.listContacts} /> */}
         </footer>
       </section>
     );
