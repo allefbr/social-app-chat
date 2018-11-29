@@ -44,7 +44,7 @@ class Home extends Component {
     this.setState({ items: updateItems });
   }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     this.setState({ items: this.state.initialItems });
   }
 

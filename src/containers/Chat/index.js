@@ -14,12 +14,8 @@ class Chat extends Component {
     super(props);
 
     this.state = {
-      route: this.match
+      item: props.items.filter(item => item.id == props.match.params.id)
     };
-  }
-
-  componentDidMount() {
-    this.props.filterContact();
   }
 
   render() {
@@ -29,14 +25,14 @@ class Chat extends Component {
           <Link to="/">
             <IconArrow />
           </Link>
-          <h2> Pessoa Nome </h2>
+          <h2>{this.state.item[0].name}</h2>
           <button type="button">
             <IconDots />
           </button>
         </Header>
 
         <section className={style.content}>
-          <p>Sou mensage</p>
+          <p>asdfa</p>
         </section>
 
         <footer className={style.footer}>
@@ -47,11 +43,8 @@ class Chat extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch, props) => ({
-  filterContact: () => dispatch(filterContact(props.match.params.id))
+const mapStateToProps = state => ({
+  items: state.contacts.items
 });
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Chat);
+export default connect(mapStateToProps)(Chat);

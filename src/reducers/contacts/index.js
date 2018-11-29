@@ -5,13 +5,13 @@ import { FILTER_CONTACT } from "./actions";
 
 const initialState = {
   items: contacts,
-  filterItem: null
+  singleItem: null
 };
 
 const Contacts = createReducer(initialState, {
   [FILTER_CONTACT]: (state, action) => ({
     ...state,
-    filterItem: state.items.filter(item => item.id == action.payload.id)
+    singleItem: state.items.filter(item => item.id == action.payload.id)
   })
 });
 
