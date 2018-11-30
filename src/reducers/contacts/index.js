@@ -1,5 +1,5 @@
 import createReducer from "../create-reducer";
-import { contacts } from "../../utils/data";
+import { contacts } from "../../mock";
 
 import { FILTER_CONTACT } from "./actions";
 
