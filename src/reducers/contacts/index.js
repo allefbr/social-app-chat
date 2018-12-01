@@ -11,7 +11,7 @@ const initialState = {
 const Contacts = createReducer(initialState, {
   [FILTER_CONTACT]: (state, action) => ({
     ...state,
-    singleItem: state.items.filter(item => item.id == action.payload.id)
+    singleItem: state.items.filter(item => item.id === action.payload.id)
   })
 });
 

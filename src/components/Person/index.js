@@ -2,10 +2,23 @@ import React from "react";
 import style from "./person.module.css";
 import Moment from "react-moment";
 
-const Person = ({ name, lastMessage, totalMessageNoRead, date, hasOn }) => (
+const Person = ({
+  thumb,
+  name,
+  lastMessage,
+  totalMessageNoRead,
+  date,
+  hasOn
+}) => (
   <div className={style.person}>
     <div className={style.infos}>
       <figure className={style.figure}>
+        <img
+          src={thumb}
+          alt={`Imagem de perfil - ${name}`}
+          className={style.thumb}
+        />
+
         {hasOn && <span className={style.online} />}
       </figure>
 

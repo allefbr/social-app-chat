@@ -12,9 +12,15 @@
   height: 50px;
   flex: none;
   background-color: #ccc;
-  border-radius: 50%;
   margin-right: 15px;
   position: relative;
+  border-radius: 50%;
+}
+
+.thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
 }
 
 .infos {

@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 import { IconArrow, IconDots } from "../../components/Icons";
 import Header from "../../components/Header";
 import ChatForm from "../../components/Chat";
+import ListMessages from "../../components/ListMessages";
 import style from "./chat.module.css";
+
+import { filterById } from "../../utils";
 
 class Chat extends Component {
   state = {
-    item: this.props.items.filter(item => item.id == this.props.match.params.id)
+    person: filterById(this.props.items, this.props.match.params.id),
+    message: filterById(this.props.messages, this.props.match.params.id)
   };
 
   render() {
+    const { person, message } = this.state;
     const { chatGrid, header, content, footer } = style;
 
     return (
@@ -20,15 +25,13 @@ class Chat extends Component {
             <IconArrow />
           </button>
 
-          <h2>{this.state.item[0].name}</h2>
+          <h2>{person.name}</h2>
           <button type="button">
             <IconDots />
           </button>
         </Header>
 
-        <section className={content}>
-          <p>asdfa</p>
-        </section>
+        {message && <ListMessages css={content} items={message} />}
 
         <footer className={footer}>
           <ChatForm />
@@ -39,7 +42,8 @@ class Chat extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.contacts.items
+  items: state.contacts.items,
+  messages: state.messages.items
 });
 
 export default connect(mapStateToProps)(Chat);
