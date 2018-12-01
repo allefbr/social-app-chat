@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { filterContact } from "../../reducers/contacts/actions-creators";
+
+import {
+  initConversation,
+  addMessage,
+  selectMessage
+} from "../../reducers/messages/actions-creators";
+
+import style from "./chat.module.css";
+
 import { IconArrow, IconDots } from "../../components/Icons";
 import Header from "../../components/Header";
 import ChatForm from "../../components/Chat";
-import ListMessages from "../../components/ListMessages";
-import style from "./chat.module.css";
-
-import { filterById } from "../../utils";
+import ListMessages from "../../components/ListMessage";
 
 class Chat extends Component {
-  state = {
-    person: filterById(this.props.items, this.props.match.params.id),
-    message: filterById(this.props.messages, this.props.match.params.id)
-  };
-
   render() {
-    const { person, message } = this.state;
+    const { addMessage, message } = this.props;
     const { chatGrid, header, content, footer } = style;
 
     return (
@@ -25,7 +27,7 @@ class Chat extends Component {
             <IconArrow />
           </button>
 
-          <h2>{person.name}</h2>
+          {/* <h2>{contact.name}</h2> */}
           <button type="button">
             <IconDots />
           </button>
@@ -34,7 +36,7 @@ class Chat extends Component {
         {message && <ListMessages css={content} items={message} />}
 
         <footer className={footer}>
-          <ChatForm />
+          <ChatForm handleMessage={addMessage(this.props.match.params.id)} />
         </footer>
       </section>
     );
@@ -42,8 +44,28 @@ class Chat extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.contacts.items,
-  messages: state.messages.items
+  contact: state.contacts.singleItem,
+  message: state.messages.selectItem
 });
 
-export default connect(mapStateToProps)(Chat);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  filterContact: async id => {
+    await dispatch(filterContact(id));
+  },
+  initConversation: async (id, thumb) => {
+    await dispatch(initConversation(id, thumb));
+  },
+  selectMessage: async id => {
+    await dispatch(selectMessage(id));
+  },
+  addMessage: id => e => {
+    e.preventDefault();
+    dispatch(addMessage(id, e.target.message.value));
+    e.target.message.value = "";
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Chat);

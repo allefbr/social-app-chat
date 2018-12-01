@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Message from "../../components/Message";
 
 const ListMessages = ({ css, items }) => (
