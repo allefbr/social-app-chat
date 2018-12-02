@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://allefbr.github.io/social-app-chat/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "history": "^4.7.2",
     "moment": "^2.22.2",
     "react": "^16.6.3",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

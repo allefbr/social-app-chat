@@ -23,6 +23,12 @@ body {
   color: var(--main-text-color);
 }
 
+#root {
+  margin: 0 auto;
+  max-width: 480px;
+  display: block;
+}
+
 a {
   text-decoration: none;
 }
