@@ -4,10 +4,6 @@
   align-items: flex-end;
 }
 
-.message ~ .message {
-  margin-top: 10px;
-}
-
 .message.me {
   flex-direction: row-reverse;
 }

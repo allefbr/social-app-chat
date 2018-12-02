@@ -2,7 +2,7 @@
   display: grid;
   width: 100%;
   height: 100vh;
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 50px minmax(0, 1fr) 50px;
   grid-template-areas:
     "top"
     "content"
@@ -11,20 +11,24 @@
 
 .header {
   grid-area: header;
+  z-index: 2;
 }
 
 .content {
   height: 100%;
   grid-area: content;
   padding: 15px;
-  display: flex;
+  overflow: auto;
+
+  display: grid;
   align-items: flex-end;
-  flex-direction: column;
-  justify-content: flex-end;
+  grid-auto-rows: min-content;
+  grid-gap: 10px;
 }
 
 .footer {
   width: 100%;
   grid-area: footer;
   border-top: 1px solid #ccc;
+  z-index: 2;
 }

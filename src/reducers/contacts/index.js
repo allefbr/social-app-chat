@@ -1,20 +1,10 @@
 import createReducer from "../create-reducer";
 import { contacts } from "../../mock";
 
-import { FILTER_CONTACT } from "./actions";
-
 const initialState = {
-  items: contacts,
-  singleItem: null
+  items: contacts
 };
 
-const Contacts = createReducer(initialState, {
-  [FILTER_CONTACT]: (state, action) => ({
-    ...state,
-    singleItem: state.items.filter(
-      item => item.id === Number(action.payload.id)
-    )
-  })
-});
+const Contacts = createReducer(initialState, {});
 
 export default Contacts;

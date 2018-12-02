@@ -4,8 +4,7 @@ import { messages } from "../../mock";
 import { INIT_CONVERSATION, ADD_MESSAGE, SELECT_MESSAGE } from "./actions";
 
 const initialState = {
-  items: messages,
-  selectItem: null
+  items: messages
 };
 
 const Messages = createReducer(initialState, {
@@ -21,33 +20,40 @@ const Messages = createReducer(initialState, {
     ]
   }),
 
-  [ADD_MESSAGE]: (state, action) => ({
-    ...state,
+  [ADD_MESSAGE]: (state, action) => {
+    const { payload } = action;
+    return {
+      ...state,
+      items: state.items.map(m => {
+        if (m.id == payload.id) {
+          m.messages = [
+            ...m.messages,
+            {
+              id: m.messages.length + 1,
+              type: "text",
+              text: payload.message,
+              date: Date.now(),
+              me: true
+            }
+          ];
 
-    items: state.items.map(item => {
-      if (item.id == action.payload.id) {
-        item.messages = [
-          ...item.messages,
-          {
-            id: item.messages.length + 1,
-            type: "text",
-            text: action.payload.message,
-            date: Date.now(),
-            me: true
-          }
-        ];
-      }
+          return {
+            ...m
+          };
+        }
 
-      return item;
-    })
-  }),
-
-  [SELECT_MESSAGE]: (state, action) => ({
-    ...state,
-    selectItem: state.items.filter(
-      item => item.id === Number(action.payload.id)
-    )
-  })
+        return m;
+      })
+    };
+  }
 });
+
+// {
+//   id: m.messages.length + 1,
+//   type: "text",
+//   text: payload.message,
+//   date: Date.now(),
+//   me: true
+// }
 
 export default Messages;

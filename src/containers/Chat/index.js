@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
+
 import { filterContact } from "../../reducers/contacts/actions-creators";
 
 import {
   initConversation,
-  addMessage,
-  selectMessage
+  addMessage
 } from "../../reducers/messages/actions-creators";
 
 import style from "./chat.module.css";
@@ -15,19 +16,27 @@ import Header from "../../components/Header";
 import ChatForm from "../../components/Chat";
 import ListMessages from "../../components/ListMessage";
 
+import { filterById } from "../../utils";
+
 class Chat extends Component {
+  // state = {
+  //   contact: this.props.contact,
+  //   message: this.props.message
+  // };
+
   render() {
-    const { addMessage, message } = this.props;
+    const { addMessage, history, contact, message } = this.props;
+    // const {  } = this.state;
     const { chatGrid, header, content, footer } = style;
 
     return (
       <section className={chatGrid}>
         <Header className={header}>
-          <button onClick={this.props.history.goBack}>
+          <button onClick={history.goBack}>
             <IconArrow />
           </button>
 
-          {/* <h2>{contact.name}</h2> */}
+          <h2>{contact.name}</h2>
           <button type="button">
             <IconDots />
           </button>
@@ -36,27 +45,25 @@ class Chat extends Component {
         {message && <ListMessages css={content} items={message} />}
 
         <footer className={footer}>
-          <ChatForm handleMessage={addMessage(this.props.match.params.id)} />
+          <ChatForm handleMessage={addMessage(contact.id)} />
         </footer>
       </section>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  contact: state.contacts.singleItem,
-  message: state.messages.selectItem
+const mapStateToProps = (state, ownProps) => ({
+  ...ownProps,
+  contact: state.contacts.items,
+  message: state.messages.items
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  filterContact: async id => {
-    await dispatch(filterContact(id));
-  },
+const mapDispatchToProps = dispatch => ({
   initConversation: async (id, thumb) => {
     await dispatch(initConversation(id, thumb));
   },
-  selectMessage: async id => {
-    await dispatch(selectMessage(id));
+  filterContact: id => {
+    dispatch(filterContact(id));
   },
   addMessage: id => e => {
     e.preventDefault();
@@ -65,7 +72,17 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Chat);
+const mergeProps = (propsFromState, propsFromDispatch, ownProps) => ({
+  ...propsFromState,
+  contact: filterById(propsFromState.contact, ownProps.match.params.id),
+  message: filterById(propsFromState.message, ownProps.match.params.id),
+  addMessage: propsFromDispatch.addMessage
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps
+  )(Chat)
+);
