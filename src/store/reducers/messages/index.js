@@ -1,5 +1,5 @@
 import createReducer from "../create-reducer";
-import { messages } from "../../mock";
+import { messages } from "../../../mock";
 
 import { INIT_CONVERSATION, ADD_MESSAGE } from "./actions";
 

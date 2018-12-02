@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import {
   initConversation,
   addMessage
-} from "../../reducers/messages/actions-creators";
+} from "../../store/reducers/messages/actions-creators";
 
 import style from "./chat.module.css";
 

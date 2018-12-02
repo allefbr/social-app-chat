@@ -8,3 +8,4 @@ This repository contains the experimental design, which uses a dribble layout as
 - [Redux](https://redux.js.org/)
 - [Redux Saga](https://redux-saga.js.org/)
 - [React Moment](https://www.npmjs.com/package/react-moment)
+- [React Persist](https://github.com/rt2zz/redux-persist)

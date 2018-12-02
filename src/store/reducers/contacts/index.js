@@ -1,5 +1,5 @@
 import createReducer from "../create-reducer";
-import { contacts } from "../../mock";
+import { contacts } from "../../../mock";
 
 const initialState = {
   items: contacts

@@ -1,28 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
-import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import createSagaMiddleware from "redux-saga";
+import { PersistGate } from "redux-persist/integration/react";
 
 import App from "./App";
 import "./style.css";
 
-import reducer from "./reducers";
-import sagas from "./sagas";
-
-const sagaMiddleware = createSagaMiddleware();
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(
-  reducer,
-  composeEnhancer(applyMiddleware(sagaMiddleware))
-);
-
-sagaMiddleware.run(sagas);
+import { store, persistor } from "./store";
 
 render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );
