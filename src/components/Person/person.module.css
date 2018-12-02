@@ -39,8 +39,8 @@
 
 .time,
 .lastMessage {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300;
   color: var(--main-text-color-light);
 }
 

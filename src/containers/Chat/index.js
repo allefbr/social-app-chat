@@ -42,7 +42,7 @@ class Chat extends Component {
         </section>
 
         <footer className={footer}>
-          <ChatForm handleMessage={addMessage(contact.id)} />
+          <ChatForm id={contact.id} handleMessage={addMessage(contact.id)} />
         </footer>
       </section>
     );

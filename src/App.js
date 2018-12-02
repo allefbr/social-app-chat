@@ -15,6 +15,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/chat/:id" component={Chat} />
       <Route path="/camera" component={Camera} />
+      <Route path="/camera/:id" component={Camera} />
     </Fragment>
   </Router>
 );

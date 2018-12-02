@@ -4,9 +4,9 @@ import style from "./chat.module.css";
 
 import { IconCamera, IconArrowRight } from "../Icons";
 
-const ChatForm = ({ handleMessage }) => (
+const ChatForm = ({ id, handleMessage }) => (
   <form onSubmit={handleMessage} className={style.wrapper}>
-    <Link to="/camera" className={style.icon}>
+    <Link to={`/camera/${id}`} className={style.icon}>
       <IconCamera />
     </Link>
 
