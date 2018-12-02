@@ -8,6 +8,9 @@ import {
 } from "../../components/Icons";
 
 import { Link } from "react-router-dom";
+
+import Webcam from "react-user-media";
+
 import style from "./camera.module.css";
 
 class Camera extends Component {
@@ -34,7 +37,14 @@ class Camera extends Component {
           <button onClick={this.props.history.goBack} className={back}>
             <IconArrow />
           </button>
-
+          <Webcam
+            width="100%"
+            height="100%"
+            audio="false"
+            onFailure={error =>
+              console.log("Não foi possivel carregar o device", error)
+            }
+          />
           <button className={`${button} ${left}`}>
             <IconThunder />
           </button>

@@ -23,6 +23,7 @@
   appearance: none;
   background-color: transparent;
   border: 0;
+  z-index: 9;
 }
 
 .back:hover {

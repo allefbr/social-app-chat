@@ -2,7 +2,9 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://allefbr.github.io/social-app-chat/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "history": "^4.7.2",
     "moment": "^2.22.2",
     "react": "^16.6.3",
@@ -12,11 +14,14 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-timezone": "^2.1.0",
+    "react-user-media": "^0.3.0",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
