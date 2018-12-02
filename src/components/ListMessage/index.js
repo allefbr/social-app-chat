@@ -1,12 +1,14 @@
 import React from "react";
 import Message from "../../components/Message";
 
-const ListMessages = ({ css, items }) => (
-  <section className={css}>
+import style from "./listmessage.module.css";
+
+const ListMessages = ({ items }) => (
+  <div className={style.wrap}>
     {items.messages.map(m => (
       <Message key={m.id} thumb={items.thumb} {...m} />
     ))}
-  </section>
+  </div>
 );
 
 export default ListMessages;

@@ -16,14 +16,11 @@
 
 .content {
   height: 100%;
-  grid-area: content;
-  padding: 15px;
-  overflow: auto;
-
   display: grid;
-  align-items: flex-end;
-  grid-auto-rows: min-content;
-  grid-gap: 10px;
+  grid-area: content;
+  overflow: hidden overlay;
+  grid-auto-rows: auto;
+  padding: 10px;
 }
 
 .footer {
