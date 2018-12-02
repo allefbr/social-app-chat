@@ -1,7 +1,7 @@
 import createReducer from "../create-reducer";
 import { messages } from "../../mock";
 
-import { INIT_CONVERSATION, ADD_MESSAGE, SELECT_MESSAGE } from "./actions";
+import { INIT_CONVERSATION, ADD_MESSAGE } from "./actions";
 
 const initialState = {
   items: messages
@@ -25,7 +25,7 @@ const Messages = createReducer(initialState, {
     return {
       ...state,
       items: state.items.map(m => {
-        if (m.id == payload.id) {
+        if (m.id === payload.id) {
           m.messages = [
             ...m.messages,
             {
@@ -47,13 +47,5 @@ const Messages = createReducer(initialState, {
     };
   }
 });
-
-// {
-//   id: m.messages.length + 1,
-//   type: "text",
-//   text: payload.message,
-//   date: Date.now(),
-//   me: true
-// }
 
 export default Messages;

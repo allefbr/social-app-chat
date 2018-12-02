@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-
-import { filterContact } from "../../reducers/contacts/actions-creators";
-import { addMessage } from "../../reducers/messages/actions-creators";
+import {
+  initConversation,
+  addMessage
+} from "../../reducers/messages/actions-creators";
 
 import style from "./chat.module.css";
 
@@ -15,6 +16,10 @@ import ListMessages from "../../components/ListMessage";
 import { filterById } from "../../utils";
 
 class Chat extends Component {
+  componentDidMount() {
+    this.props.initConversation();
+  }
+
   render() {
     const { addMessage, history, contact, message } = this.props;
     const { chatGrid, header, content, footer } = style;
@@ -51,6 +56,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  initConversation: (id, thumb) => {
+    dispatch(initConversation(id, thumb));
+  },
   addMessage: id => e => {
     e.preventDefault();
     dispatch(addMessage(id, e.target.message.value));
@@ -60,9 +68,19 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (propsFromState, propsFromDispatch, ownProps) => ({
   ...propsFromState,
+  ...propsFromDispatch,
   contact: filterById(propsFromState.contact, ownProps.match.params.id),
   message: filterById(propsFromState.message, ownProps.match.params.id),
-  addMessage: propsFromDispatch.addMessage
+  initConversation: () => {
+    const contact = filterById(
+      propsFromState.contact,
+      ownProps.match.params.id
+    );
+
+    if (!propsFromState.message.some(element => element.id === contact.id)) {
+      return propsFromDispatch.initConversation(contact.id, contact.thumb);
+    }
+  }
 });
 
 export default withRouter(
