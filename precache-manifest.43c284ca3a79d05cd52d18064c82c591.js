@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/social-app-chat/static/js/runtime~main.bf416bb3.js"
   },
   {
-    "revision": "bcce08f92ade70f910b0",
-    "url": "/social-app-chat/static/js/main.bcce08f9.chunk.js"
+    "revision": "c19f028d26a5b37d67dc",
+    "url": "/social-app-chat/static/js/main.c19f028d.chunk.js"
   },
   {
     "revision": "644e677ea48c1363a9f0",
     "url": "/social-app-chat/static/js/1.644e677e.chunk.js"
   },
   {
-    "revision": "bcce08f92ade70f910b0",
-    "url": "/social-app-chat/static/css/main.8c410d65.chunk.css"
+    "revision": "c19f028d26a5b37d67dc",
+    "url": "/social-app-chat/static/css/main.a4b08bc8.chunk.css"
   },
   {
-    "revision": "af4adf7b1f159cb0ce1b4db58db8d6af",
+    "revision": "885e6d9a82787b3e42cedeec9764db6f",
     "url": "/social-app-chat/index.html"
   }
 ];
