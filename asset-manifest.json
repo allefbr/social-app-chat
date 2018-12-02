@@ -1,13 +1,13 @@
 {
-  "main.css": "/social-app-chat/static/css/main.7153cee1.chunk.css",
-  "main.js": "/social-app-chat/static/js/main.892b5945.chunk.js",
-  "main.js.map": "/social-app-chat/static/js/main.892b5945.chunk.js.map",
-  "static/js/1.54c217af.chunk.js": "/social-app-chat/static/js/1.54c217af.chunk.js",
-  "static/js/1.54c217af.chunk.js.map": "/social-app-chat/static/js/1.54c217af.chunk.js.map",
+  "main.css": "/social-app-chat/static/css/main.8c410d65.chunk.css",
+  "main.js": "/social-app-chat/static/js/main.bcce08f9.chunk.js",
+  "main.js.map": "/social-app-chat/static/js/main.bcce08f9.chunk.js.map",
+  "static/js/1.644e677e.chunk.js": "/social-app-chat/static/js/1.644e677e.chunk.js",
+  "static/js/1.644e677e.chunk.js.map": "/social-app-chat/static/js/1.644e677e.chunk.js.map",
   "runtime~main.js": "/social-app-chat/static/js/runtime~main.bf416bb3.js",
   "runtime~main.js.map": "/social-app-chat/static/js/runtime~main.bf416bb3.js.map",
-  "static/css/main.7153cee1.chunk.css.map": "/social-app-chat/static/css/main.7153cee1.chunk.css.map",
+  "static/css/main.8c410d65.chunk.css.map": "/social-app-chat/static/css/main.8c410d65.chunk.css.map",
   "index.html": "/social-app-chat/index.html",
-  "precache-manifest.bfe0540b28d39a55dfc0438a561b9b49.js": "/social-app-chat/precache-manifest.bfe0540b28d39a55dfc0438a561b9b49.js",
+  "precache-manifest.b1c14557484a4e2a16f5c2892afb9c14.js": "/social-app-chat/precache-manifest.b1c14557484a4e2a16f5c2892afb9c14.js",
   "service-worker.js": "/social-app-chat/service-worker.js"
 }
