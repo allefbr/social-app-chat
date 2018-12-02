@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
 
 import Home from "./containers/Home";
@@ -10,7 +10,7 @@ import Camera from "./containers/Camera";
 const history = createBrowserHistory();
 
 const App = () => (
-  <Router history={history}>
+  <Router basename={process.env.PUBLIC_URL} history={history}>
     <Fragment>
       <Route exact path="/" component={Home} />
       <Route path="/chat/:id" component={Chat} />
